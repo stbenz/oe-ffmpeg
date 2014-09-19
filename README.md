@@ -18,9 +18,7 @@ Following external codecs are available in the binaries:
 
 ### Licensing issues
 
-Although all sources compiled into the ffmpeg binaries are licensed under open
-source licenses, the licenses may not be compatible. **Distributing the binaries
-built from this repository may violate the GPL!**
+See https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md#incompatible-libraries
 
 ### Building instructions
 
