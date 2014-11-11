@@ -178,9 +178,6 @@ configure_target() {
 
 post_makeinstall_target() {
   rm -rf $INSTALL/usr/share/ffmpeg/examples
-
-  mkdir -p $ROOT/$PKG_BUILD/.install_full
-  cp -r $INSTALL/usr/* $ROOT/$PKG_BUILD/.install_full/
 }
 
 addon() {
