@@ -18,14 +18,14 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.4.1"
-PKG_REV="2"
+PKG_VERSION="2.4.3"
+PKG_REV="3"
 PKG_ARCH="any"
-PKG_LICENSE="other"
+PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
 PKG_URL="http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.bz2"
 PKG_SOURCE_DIR="ffmpeg-${PKG_VERSION}"
-PKG_DEPENDS_TARGET="toolchain yasm:host zlib bzip2 libvorbis libtheora gnutls x264 fdk-aac lame libvpx opus"
+PKG_DEPENDS_TARGET="toolchain yasm:host zlib bzip2 libvorbis libtheora gnutls x264 lame libvpx opus"
 PKG_PRIORITY="optional"
 PKG_SECTION="multimedia"
 PKG_SHORTDESC="FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video."
@@ -36,6 +36,14 @@ PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.python.script"
 
 PKG_AUTORECONF="no"
+
+if [ -z "$FFMPEG_GPL" ]; then
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET fdk-aac"
+  FFMPEG_FDKAAC="--enable-nonfree --enable-libfdk-aac"
+else
+  PKG_LICENSE="GPL"
+  FFMPEG_FDKAAC="--disable-libfdk-aac"
+fi
 
 if [ "$VAAPI" = yes ]; then
 # configure GPU drivers and dependencies:
@@ -139,7 +147,6 @@ configure_target() {
               --enable-static \
               --disable-shared \
               --enable-gpl \
-              --enable-nonfree \
               --disable-doc \
               $FFMPEG_DEBUG \
               $FFMPEG_PIC \
@@ -147,7 +154,6 @@ configure_target() {
               --disable-armv5te \
               --disable-armv6t2 \
               --disable-extra-warnings \
-              --disable-ffplay \
               $FFMPEG_OPTIM \
               $FFMPEG_VAAPI \
               $FFMPEG_VDPAU \
@@ -156,7 +162,9 @@ configure_target() {
               --enable-runtime-cpudetect \
               $FFMPEG_TABLES \
               --enable-gnutls \
-              --enable-libfdk-aac \
+              --enable-avresample \
+              --disable-libressl \
+              $FFMPEG_FDKAAC \
               --enable-libmp3lame \
               --enable-libopus \
               --enable-libvorbis \
@@ -170,6 +178,9 @@ configure_target() {
 
 post_makeinstall_target() {
   rm -rf $INSTALL/usr/share/ffmpeg/examples
+
+  mkdir -p $ROOT/$PKG_BUILD/.install_full
+  cp -r $INSTALL/usr/* $ROOT/$PKG_BUILD/.install_full/
 }
 
 addon() {
