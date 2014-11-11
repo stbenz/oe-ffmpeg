@@ -38,5 +38,5 @@ included fdk-aac violates the GPL.
 
 See https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md#incompatible-libraries
 
-To build a GPL conform addon without fdk-aac, build the addon like this:
+To build a GPL conform addon without fdk-aac, build the addon like this:  
 `PROJECT=Generic ARCH=x86_64 FFMPEG_GPL=1 ./scripts/create_addon ffmpeg-programs`
