@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-tvheadend"
-PKG_VERSION="2.4.3"
-PKG_REV="3"
+PKG_VERSION="2.5.2"
+PKG_REV="4"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
