@@ -18,14 +18,14 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.4.3"
-PKG_REV="3"
+PKG_VERSION="2.5.2"
+PKG_REV="4"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
 PKG_URL="http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.bz2"
 PKG_SOURCE_DIR="ffmpeg-${PKG_VERSION}"
-PKG_DEPENDS_TARGET="toolchain yasm:host zlib bzip2 libvorbis libtheora gnutls x264 lame libvpx opus"
+PKG_DEPENDS_TARGET="toolchain yasm:host zlib bzip2 libvorbis libtheora libressl x264 lame libvpx opus"
 PKG_PRIORITY="optional"
 PKG_SECTION="multimedia"
 PKG_SHORTDESC="FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video."
@@ -161,9 +161,9 @@ configure_target() {
               --disable-dxva2 \
               --enable-runtime-cpudetect \
               $FFMPEG_TABLES \
-              --enable-gnutls \
+              --disable-gnutls \
               --enable-avresample \
-              --disable-libressl \
+              --enable-libressl \
               $FFMPEG_FDKAAC \
               --enable-libmp3lame \
               --enable-libopus \
@@ -173,7 +173,8 @@ configure_target() {
               --enable-libtheora \
               $FFMPEG_CPU \
               $FFMPEG_FPU \
-              --enable-yasm
+              --enable-yasm \
+              --disable-ffplay
 }
 
 post_makeinstall_target() {
