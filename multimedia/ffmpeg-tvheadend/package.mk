@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-tvheadend"
-PKG_VERSION="2.5.2"
-PKG_REV="4"
+PKG_VERSION="2.5.3"
+PKG_REV="5"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
@@ -40,6 +40,23 @@ if [ -z "$FFMPEG_GPL" ]; then
 else
   PKG_LICENSE="GPL"
   FFMPEG_FDKAAC=""
+fi
+
+if [ "$VAAPI" = yes ]; then
+  # configure GPU drivers and dependencies:
+  get_graphicdrivers
+
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET libva-intel-driver"
+  FFMPEG_VAAPI="--enable-vaapi"
+else
+  FFMPEG_VAAPI="--disable-vaapi"
+fi
+
+if [ "$VDPAU" = yes ]; then
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET libvdpau"
+  FFMPEG_VDPAU="--enable-vdpau"
+else
+  FFMPEG_VDPAU="--disable-vdpau"
 fi
 
 if [ "$DEBUG" = yes ]; then
@@ -130,6 +147,8 @@ configure_target() {
               --disable-extra-warnings \
               --enable-runtime-cpudetect \
               $FFMPEG_TABLES \
+              $FFMPEG_VAAPI \
+              $FFMPEG_VDPAU \
               $FFMPEG_CPU \
               $FFMPEG_FPU \
               --enable-libx264 \
