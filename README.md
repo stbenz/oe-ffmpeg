@@ -18,12 +18,12 @@ Following external codecs are available in the binaries:
 
 ### Building instructions
 
-1. Get the OpenELEC sources (4.2 branch)  
-`git clone -b openelec-4.2 https://github.com/OpenELEC/OpenELEC.tv.git &&
+1. Get the OpenELEC sources (5.0 branch)  
+`git clone -b openelec-5.0 https://github.com/OpenELEC/OpenELEC.tv.git &&
 cd OpenELEC.tv`
 
 2. Get the unofficial ffmpeg addon sources  
-`git clone -b openelec-4.2 https://github.com/stbenz/oe-ffmpeg.git packages/unofficial/oe-ffmpeg`
+`git clone https://github.com/stbenz/oe-ffmpeg.git packages/oe-ffmpeg`
 
 3. Build OpenELEC release  
 `PROJECT=Generic ARCH=x86_64 make release`
