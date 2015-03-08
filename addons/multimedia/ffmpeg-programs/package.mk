@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.5.3"
-PKG_REV="5"
+PKG_VERSION="2.5.4"
+PKG_REV="6"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
@@ -175,6 +175,10 @@ configure_target() {
               $FFMPEG_FPU \
               --enable-yasm \
               --disable-ffplay
+}
+
+makeinstall_target() {
+	make install DESTDIR=$INSTALL $PKG_MAKEINSTALL_OPTS_TARGET
 }
 
 addon() {

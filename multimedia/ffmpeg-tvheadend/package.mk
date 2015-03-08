@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-tvheadend"
-PKG_VERSION="2.5.3"
-PKG_REV="5"
+PKG_VERSION="2.5.4"
+PKG_REV="6"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
@@ -186,6 +186,6 @@ configure_target() {
               --enable-bsf=h264_mp4toannexb
 }
 
-post_makeinstall_target() {
-  rm -rf $INSTALL/usr/share/ffmpeg/examples
+makeinstall_target() {
+	make install DESTDIR=$ROOT/$PKG_BUILD/.install_tmp $PKG_MAKEINSTALL_OPTS_TARGET
 }

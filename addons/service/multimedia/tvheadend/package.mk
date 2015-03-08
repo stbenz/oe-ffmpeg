@@ -50,6 +50,9 @@ pre_build_target() {
 }
 
 configure_target() {
+	PKG_CONFIG_PATH="$(get_build_dir ffmpeg-tvheadend)/.install_tmp/usr/lib/pkgconfig" \
+	CFLAGS="$CFLAGS -I$(get_build_dir ffmpeg-tvheadend)/.install_tmp/usr/include" \
+	LDFLAGS="$LDFLAGS -L$(get_build_dir ffmpeg-tvheadend)/.install_tmp/usr/lib" \
   ./configure --prefix=/usr \
             --arch=$TARGET_ARCH \
             --cpu=$TARGET_CPU \
