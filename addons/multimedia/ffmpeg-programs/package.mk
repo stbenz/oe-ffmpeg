@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.5.4"
-PKG_REV="6"
+PKG_VERSION="2.6"
+PKG_REV="7"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
@@ -171,6 +171,9 @@ configure_target() {
               --enable-libvpx \
               --enable-libx264 \
               --enable-libtheora \
+              --enable-libfreetype \
+              --enable-fontconfig \
+              --enable-libass \
               $FFMPEG_CPU \
               $FFMPEG_FPU \
               --enable-yasm \
