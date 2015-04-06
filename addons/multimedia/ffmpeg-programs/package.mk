@@ -18,8 +18,8 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.6"
-PKG_REV="7"
+PKG_VERSION="2.6.1"
+PKG_REV="8"
 PKG_ARCH="any"
 PKG_LICENSE="nonfree"
 PKG_SITE="http://ffmpeg.org"
