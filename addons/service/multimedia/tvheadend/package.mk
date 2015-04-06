@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="tvheadend"
-PKG_VERSION="3.9.2515"
-PKG_REV="14"
+PKG_VERSION="3.9.2678"
+PKG_REV="13"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.tvheadend.org"
-PKG_URL="$DISTRO_SRC/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+PKG_URL="http://stbenz.de/openelec/sources/${PKG_NAME}-${PKG_VERSION}.tar.gz"
 PKG_DEPENDS_TARGET="toolchain libressl curl ffmpeg-tvheadend"
 PKG_PRIORITY="optional"
 PKG_SECTION="service/multimedia"
