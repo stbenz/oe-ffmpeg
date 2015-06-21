@@ -45,11 +45,11 @@ with included fdk-aac violates the GPL.
 
 See https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md#incompatible-libraries
 
-To build a GPL conform addons without fdk-aac, build the addons like this:
+By default GPL conform addons without fdk-aac are built. To include fdk-aac use the following commands:
 ``` 
 # ffmpeg-programs
-PROJECT=Generic ARCH=x86_64 FFMPEG_GPL=1 ./scripts/create_addon ffmpeg-programs
+PROJECT=Generic ARCH=x86_64 NONFREE=yes ./scripts/create_addon ffmpeg-programs
 
 # tvheadend
-PROJECT=Generic ARCH=x86_64 FFMPEG_GPL=1 ./scripts/create_addon tvheadend
+PROJECT=Generic ARCH=x86_64 NONFREE=yes ./scripts/create_addon tvheadend
 ```
