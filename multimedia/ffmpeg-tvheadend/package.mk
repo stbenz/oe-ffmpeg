@@ -21,7 +21,7 @@ PKG_NAME="ffmpeg-tvheadend"
 PKG_VERSION="2.6.3"
 PKG_REV="8"
 PKG_ARCH="any"
-PKG_LICENSE="nonfree"
+PKG_LICENSE="GPL"
 PKG_SITE="http://ffmpeg.org"
 PKG_URL="http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.bz2"
 PKG_SOURCE_DIR="ffmpeg-${PKG_VERSION}"
@@ -34,22 +34,10 @@ PKG_DISCLAIMER=""
 
 PKG_AUTORECONF="no"
 
-if [ -z "$FFMPEG_GPL" ]; then
+if [ "$NONFREE" = yes ]; then
+  PKG_LICENSE="nonfree"
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET fdk-aac"
   FFMPEG_FDKAAC="--enable-nonfree --enable-libfdk-aac --enable-encoder=libfdk_aac"
-else
-  PKG_LICENSE="GPL"
-  FFMPEG_FDKAAC=""
-fi
-
-if [ "$VAAPI" = yes ]; then
-  # configure GPU drivers and dependencies:
-  get_graphicdrivers
-
-  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET libva-intel-driver"
-  FFMPEG_VAAPI="--enable-vaapi"
-else
-  FFMPEG_VAAPI="--disable-vaapi"
 fi
 
 if [ "$VDPAU" = yes ]; then
@@ -147,7 +135,7 @@ configure_target() {
               --disable-extra-warnings \
               --enable-runtime-cpudetect \
               $FFMPEG_TABLES \
-              $FFMPEG_VAAPI \
+              --disable-vaapi \
               $FFMPEG_VDPAU \
               $FFMPEG_CPU \
               $FFMPEG_FPU \
@@ -177,13 +165,13 @@ configure_target() {
               --enable-encoder=libvpx_vp8 \
               --enable-encoder=libvpx_vp9 \
               --enable-encoder=aac \
-              --enable-encoder=vorbis \
               --enable-encoder=libvorbis \
               --enable-muxer=mpegts \
               --enable-muxer=mpeg2dvd \
               --enable-muxer=matroska \
               --enable-muxer=webm \
-              --enable-bsf=h264_mp4toannexb
+              --enable-bsf=h264_mp4toannexb \
+              --enable-protocol=file
 }
 
 makeinstall_target() {

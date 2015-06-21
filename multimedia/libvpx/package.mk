@@ -18,12 +18,12 @@
 ################################################################################
 
 PKG_NAME="libvpx"
-PKG_VERSION="v1.3.0"
+PKG_VERSION="1.4.0"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="BSD"
 PKG_SITE="http://www.webmproject.org/"
-PKG_URL="http://webm.googlecode.com/files/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+PKG_URL="http://storage.googleapis.com/downloads.webmproject.org/releases/webm/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
 PKG_DEPENDS_TARGET="toolchain yasm:host"
 PKG_PRIORITY="optional"
 PKG_SECTION="multimedia"

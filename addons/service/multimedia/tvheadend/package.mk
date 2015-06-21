@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="tvheadend"
-PKG_VERSION="4.1-41"
-PKG_REV="15"
+PKG_VERSION="4.1-244"
+PKG_REV="16"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.tvheadend.org"
@@ -31,6 +31,7 @@ PKG_LONGDESC="Tvheadend (Version: $PKG_VERSION) is a TV streaming server for Lin
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.service"
 PKG_AUTORECONF="no"
+PKG_ADDON_REPOVERSION="4.3"
 
 if [ "$TARGET_ARCH" == "arm" ] ; then
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET libdvbcsa"
