@@ -1,6 +1,6 @@
-From d5adab8d6305b6b0b4b7fe6151cd67ae85a34ff3 Mon Sep 17 00:00:00 2001
+From 81cd657b104ed808ebb1a763b2755411a26249d2 Mon Sep 17 00:00:00 2001
 From: stbenz <benz.st@gmail.com>
-Date: Tue, 23 Jun 2015 19:51:08 +0200
+Date: Fri, 26 Jun 2015 22:10:55 +0200
 Subject: [PATCH] remove -Werror
 
 ---
@@ -8,13 +8,13 @@ Subject: [PATCH] remove -Werror
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index b176375..3b7d760 100644
+index 07d6965..1e69ae4 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -32,7 +32,7 @@ CFLAGS  += -g -O2
- ifeq ($(CONFIG_W_UNUSED_RESULT),yes)
- CFLAGS  += -Wunused-result
- endif
+@@ -28,7 +28,7 @@ PROG    := $(BUILDDIR)/tvheadend
+ #
+ 
+ CFLAGS  += -g -O2 -Wunused-result
 -CFLAGS  += -Wall -Werror -Wwrite-strings -Wno-deprecated-declarations
 +CFLAGS  += -Wall -Wwrite-strings -Wno-deprecated-declarations
  CFLAGS  += -Wmissing-prototypes
