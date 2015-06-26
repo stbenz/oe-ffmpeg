@@ -1,25 +1,25 @@
-From 67e38551bc3acadf27b3ed4922e897348a612fdb Mon Sep 17 00:00:00 2001
-From: Stefan Saraev <stefan@saraev.ca>
-Date: Wed, 15 Oct 2014 13:35:09 +0300
-Subject: [PATCH] remove werror
+From d5adab8d6305b6b0b4b7fe6151cd67ae85a34ff3 Mon Sep 17 00:00:00 2001
+From: stbenz <benz.st@gmail.com>
+Date: Tue, 23 Jun 2015 19:51:08 +0200
+Subject: [PATCH] remove -Werror
 
 ---
- Makefile |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index ddcc47e..0087a6c 100644
+index b176375..3b7d760 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -28,7 +28,7 @@ PROG    := $(BUILDDIR)/tvheadend
- #
- 
- CFLAGS  += -g -O2 -Wunused-result
+@@ -32,7 +32,7 @@ CFLAGS  += -g -O2
+ ifeq ($(CONFIG_W_UNUSED_RESULT),yes)
+ CFLAGS  += -Wunused-result
+ endif
 -CFLAGS  += -Wall -Werror -Wwrite-strings -Wno-deprecated-declarations
 +CFLAGS  += -Wall -Wwrite-strings -Wno-deprecated-declarations
  CFLAGS  += -Wmissing-prototypes
  CFLAGS  += -fms-extensions -funsigned-char -fno-strict-aliasing
  CFLAGS  += -D_FILE_OFFSET_BITS=64
 -- 
-1.7.2.5
+1.9.1
 
