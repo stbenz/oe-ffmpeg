@@ -18,10 +18,10 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.6.1"
-PKG_REV="8"
+PKG_VERSION="2.6.3"
+PKG_REV="9"
 PKG_ARCH="any"
-PKG_LICENSE="nonfree"
+PKG_LICENSE="GPL"
 PKG_SITE="http://ffmpeg.org"
 PKG_URL="http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.bz2"
 PKG_SOURCE_DIR="ffmpeg-${PKG_VERSION}"
@@ -37,12 +37,10 @@ PKG_ADDON_TYPE="xbmc.python.script"
 
 PKG_AUTORECONF="no"
 
-if [ -z "$FFMPEG_GPL" ]; then
+if [ "$NONFREE" = yes ]; then
+  PKG_LICENSE="nonfree"
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET fdk-aac"
   FFMPEG_FDKAAC="--enable-nonfree --enable-libfdk-aac"
-else
-  PKG_LICENSE="GPL"
-  FFMPEG_FDKAAC="--disable-libfdk-aac"
 fi
 
 if [ "$VAAPI" = yes ]; then
