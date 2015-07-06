@@ -18,7 +18,7 @@
 ################################################################################
 
 PKG_NAME="ffmpeg-programs"
-PKG_VERSION="2.6.3"
+PKG_VERSION="2.7.1"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
