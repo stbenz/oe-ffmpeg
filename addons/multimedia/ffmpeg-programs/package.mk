@@ -19,7 +19,7 @@
 
 PKG_NAME="ffmpeg-programs"
 PKG_VERSION="2.6.3"
-PKG_REV="9"
+PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://ffmpeg.org"
@@ -34,6 +34,7 @@ PKG_DISCLAIMER="WARNING: This addon contains code under licenses that are not co
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.python.script"
+PKG_ADDON_REPOVERSION="6.0"
 
 PKG_AUTORECONF="no"
 
